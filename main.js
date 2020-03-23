@@ -4,10 +4,11 @@ const exec = require('@actions/exec')
 
 async function main() {
     try {
+        const token = core.getInput("token", { required: true })
         const pr = core.getInput("pr", { required: true })
         const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 
-        const client = new github.GitHub(github.context.token)
+        const client = new github.GitHub(token)
 
         const pull = await client.pulls.get({
             owner: owner,
