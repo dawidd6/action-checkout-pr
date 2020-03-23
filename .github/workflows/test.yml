@@ -17,6 +17,7 @@ jobs:
       - name: Checkout PR
         uses: ./action
         with:
+          github_token: ${{secrets.TOKEN}}
           pr: 12
           repo: dawidd6/homebrew-test
       - name: Test
