@@ -6,14 +6,14 @@ jobs:
   test-other-repo:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-        with:
-          path: action
       - name: Checkout other repo
         uses: actions/checkout@v2
         with:
           repo: dawidd6/homebrew-test
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          path: action
       - name: Checkout PR
         uses: ./action
         with:
