@@ -4,7 +4,7 @@ const exec = require('@actions/exec')
 
 async function main() {
     try {
-        const token = core.getInput("github_token", { required: true })
+        const token = core.getInput("token", { required: true })
         const pr = core.getInput("pr", { required: true })
         const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 
