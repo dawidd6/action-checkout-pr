@@ -6,7 +6,7 @@ async function main() {
     try {
         const token = core.getInput("github_token", { required: true })
         const pr = core.getInput("pr", { required: true })
-        const [owner, repo] = core.getInput("repo").split("/")
+        const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 
         const client = new github.GitHub(token)
 
