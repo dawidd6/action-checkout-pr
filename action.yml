@@ -1,5 +1,5 @@
 name: Checkout PR
-description: Fetch and checkout a pull request
+description: Fetch and checkout a pull request with ability to push back changes
 author: dawidd6
 branding:
   icon: git-pull-request
