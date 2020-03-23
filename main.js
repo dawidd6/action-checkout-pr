@@ -22,7 +22,7 @@ async function main() {
 
         let remote = "origin"
         if (fork) {
-            remote = url.replace("git://github.com", `https://${github.context.actor}:${token}@github.com`)
+            remote = url.replace("git://github.com", `https://${token}@github.com`)
         }
 
         await exec.exec("git", ["fetch", remote, `${branch}:${branch}`])
