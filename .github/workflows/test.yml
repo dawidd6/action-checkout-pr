@@ -28,7 +28,7 @@ jobs:
         uses: ./
         with:
           pr: 1
-      - name: Test (other repo)
+      - name: Test
         run: |
           git config --local --get-regexp '^branch.+'
           git push
