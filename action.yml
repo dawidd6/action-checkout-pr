@@ -5,7 +5,7 @@ branding:
   icon: git-pull-request
   color: purple
 inputs:
-  github_token:
+  token:
     description: Github token
     required: false
     default: ${{github.token}}
