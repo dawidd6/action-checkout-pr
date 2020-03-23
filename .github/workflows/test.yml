@@ -1,25 +1,34 @@
-name: "units-test"
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-      - 'releases/*'
+name: Test Action
+
+on: push
 
 jobs:
-  # unit tests
-  units:
+  test-other-repo:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - run: npm ci
-    - run: npm test
-
-  # test action works running from the graph  
-  test:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          repo: dawidd6/homebrew-test
+      - name: Checkout PR
+        uses: ./
+        with:
+          pr: 12
+          repo: homebrew-test
+      - name: Test
+        run: |
+          git config --local --get-regexp '^branch.+'
+          git push
+  test-this-repo:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./
-      with:
-        milliseconds: 1000
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Checkout PR
+        uses: ./
+        with:
+          pr: 1
+      - name: Test (other repo)
+        run: |
+          git config --local --get-regexp '^branch.+'
+          git push
