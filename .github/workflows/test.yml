@@ -18,7 +18,6 @@ jobs:
       - name: Checkout PR
         uses: ./action
         with:
-          token: ${{secrets.TOKEN}}
           pr: 12
           repo: dawidd6/homebrew-test
       - name: Show config
