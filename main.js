@@ -4,11 +4,10 @@ const exec = require('@actions/exec')
 
 async function main() {
     try {
-        const token = core.getInput("token", { required: true })
         const pr = core.getInput("pr", { required: true })
         const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 
-        const client = new github.GitHub(token)
+        const client = new github.GitHub(github.context.token)
 
         const pull = await client.pulls.get({
             owner: owner,
@@ -16,14 +15,9 @@ async function main() {
             pull_number: pr
         })
 
-        const url = pull.data.head.repo.git_url
         const fork = pull.data.head.repo.fork
+        const remote = fork ? pull.data.head.repo.clone_url : "origin"
         const branch = pull.data.head.ref
-
-        let remote = "origin"
-        if (fork) {
-            remote = url.replace("git://github.com", `https://${token}@github.com`)
-        }
 
         await exec.exec("git", ["fetch", remote, `${branch}:${branch}`])
         await exec.exec("git", ["config", `branch.${branch}.remote`, remote])
