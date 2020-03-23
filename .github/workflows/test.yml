@@ -9,9 +9,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
+          path: action
+      - name: Checkout other repo
+        uses: actions/checkout@v2
+        with:
           repo: dawidd6/homebrew-test
       - name: Checkout PR
-        uses: ./
+        uses: ./action
         with:
           pr: 12
           repo: dawidd6/homebrew-test
