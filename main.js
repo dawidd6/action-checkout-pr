@@ -25,10 +25,10 @@ async function main() {
             remote = url.replace("git://github.com", `https://${token}@github.com`)
         }
 
-        exec.exec("git", ["fetch", remote, branch])
-        exec.exec("git", ["config", `branch.${branch}.remote`, remote])
-        exec.exec("git", ["config", `branch.${branch}.merge`, `refs/heads/${branch}`])
-        exec.exec("git", ["checkout", branch])
+        await exec.exec("git", ["fetch", remote, branch])
+        await exec.exec("git", ["config", `branch.${branch}.remote`, remote])
+        await exec.exec("git", ["config", `branch.${branch}.merge`, `refs/heads/${branch}`])
+        await exec.exec("git", ["checkout", branch])
     } catch (error) {
         core.setFailed(error.message)
     }
