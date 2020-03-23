@@ -23,7 +23,7 @@ jobs:
       - name: Test
         run: |
           git config --local --get-regexp '^branch.+'
-          git push
+          git push -v
   test-this-repo:
     runs-on: ubuntu-latest
     steps:
@@ -36,4 +36,4 @@ jobs:
       - name: Test
         run: |
           git config --local --get-regexp '^branch.+'
-          git push
+          git push -v
