@@ -4,14 +4,17 @@ An action that fetches and checkouts a pull request branch leaving an ability to
 
 It's basically `hub pr checkout` command, but as an Action.
 
+This Action is meant to be used with `actions/checkout` official Action.
+
 ## Usage
 
 ```yaml
 - name: Checkout repo
   uses: actions/checkout@v2
+  with:
+    token: ${{secrets.TOKEN}}
 - name: Checkout PR
   uses: dawidd6/action-checkout-pr@master
   with:
-    github_token: ${{secrets.GITHUB_TOKEN}}
     pr: 99
 ```
