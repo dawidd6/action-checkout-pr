@@ -12,12 +12,10 @@ inputs:
   pr:
     description: Pull request number
     required: true
-  owner:
-    description: Repository owner (defaults to current)
-    required: false
   repo:
-    description: Repository name (defaults to current)
+    description: Repository name with owner (like actions/checkout)
     required: false
+    default: ${{github.repository}}
 runs:
   using: node12
   main: main.js
