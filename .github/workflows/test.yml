@@ -20,9 +20,11 @@ jobs:
           github_token: ${{secrets.TOKEN}}
           pr: 12
           repo: dawidd6/homebrew-test
-      - name: Test
+      - name: Show config
         run: |
-          git config --local --get-regexp '^branch.+'
+          git config --list
+      - name: Push back
+        run: |
           git push -v
   test-this-repo:
     runs-on: ubuntu-latest
@@ -33,7 +35,9 @@ jobs:
         uses: ./
         with:
           pr: 1
-      - name: Test
+      - name: Show config
         run: |
-          git config --local --get-regexp '^branch.+'
+          git config --list
+      - name: Push back
+        run: |
           git push -v
