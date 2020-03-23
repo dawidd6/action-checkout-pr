@@ -25,7 +25,7 @@ async function main() {
             remote = url.replace("git://github.com", `https://${token}@github.com`)
         }
 
-        await exec.exec("git", ["fetch", remote, branch])
+        await exec.exec("git", ["fetch", remote, `${branch}:${branch}`])
         await exec.exec("git", ["config", `branch.${branch}.remote`, remote])
         await exec.exec("git", ["config", `branch.${branch}.merge`, `refs/heads/${branch}`])
         await exec.exec("git", ["checkout", branch])
