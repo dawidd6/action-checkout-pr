@@ -14,7 +14,7 @@ This Action is meant to be used with `actions/checkout` official Action.
   with:
     token: ${{secrets.TOKEN}}
 - name: Checkout PR
-  uses: dawidd6/action-checkout-pr@master
+  uses: dawidd6/action-checkout-pr@v1
   with:
     pr: 99
 ```
