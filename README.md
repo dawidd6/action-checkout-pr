@@ -4,7 +4,7 @@ An action that fetches and checkouts a pull request branch leaving an ability to
 
 It's basically `hub pr checkout` command, but as an Action.
 
-This Action is meant to be used with `actions/checkout` official Action.
+This Action is meant to be used with `actions/checkout`.
 
 ## Usage
 
