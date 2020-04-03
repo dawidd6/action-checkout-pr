@@ -16,8 +16,6 @@ async function main() {
             pull_number: pr
         })
 
-        console.log(pull)
-
         const fork = pull.data.head.repo.fork
         const modify = pull.data.maintainer_can_modify
         const remote = fork ? pull.data.head.repo.clone_url : "origin"
