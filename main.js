@@ -23,7 +23,7 @@ async function main() {
         const remote = fork ? pull.data.head.repo.clone_url : "origin"
         const branch = pull.data.head.ref
 
-        if (!modify)
+        if (fork && !modify)
             core.warning("PR can't be modified by maintainer")
 
         await exec.exec("git", ["fetch", remote, `${branch}:${branch}`])
