@@ -1,6 +1,6 @@
 # Checkout PR Github Action
 
-An action that fetches and checkouts a pull request branch leaving an ability to push made changes back to it, using provided token for the push.
+An action that fetches and checks out a pull request branch leaving an ability to push made changes back to it, using provided token for the push.
 
 It's basically `hub pr checkout` command, but as an Action.
 
