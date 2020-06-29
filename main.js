@@ -8,7 +8,7 @@ async function main() {
         const pr = core.getInput("pr", { required: true })
         const [owner, repo] = core.getInput("repo", { required: true }).split("/")
 
-        const client = new github.GitHub(token)
+        const client = github.getOctokit(token)
 
         const pull = await client.pulls.get({
             owner: owner,
